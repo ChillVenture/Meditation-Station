@@ -36,7 +36,6 @@ function handleSubmit(event){
 
 
 
-
 //save all the user settings to localStorage
 function saveToStorage(){
    
@@ -47,32 +46,28 @@ function saveToStorage(){
 
 
 
-//POTENTIAL BLOCKER: Restored settings make the inputs blank, except text inputs
 //retrieve user settings on page load
 function retrieveSettings(){
     
+    //get the raaw json data and parse it
+    let rawJSON = localStorage.getItem('savedSettings')
+    let parsedSettings = JSON.parse(rawJSON)[0];
+
     //declare elements in which we will plug the retrieved data
     let nameEl = document.getElementById('userName');
     let backgroundEl = document.getElementById('backgroundSelect');
     let timerEl = document.getElementById('timerSelect');
     let soundsEl = document.getElementById('soundsSelect');
-    let bgTypeEl = document.getElementById('bgType');
+    let bgTypeEl = document.getElementById(parsedSettings.bgStyle);
     
-    //get the raaw json data and parse it
-    let rawJSON = localStorage.getItem('savedSettings')
-    let parsedSettings = JSON.parse(rawJSON)[0];
-    console.log(parsedSettings);
-   
-    //set the values of the elements in the form with the parsed data
-    nameEl.value = parsedSettings.name;
-    backgroundEl.value =  parsedSettings.backgroundSelect;
-    timerEl.innerHTML =  parsedSettings.timerSelect;
-    soundsEl.value =  parsedSettings.soundsSelect;
-    bgTypeEl.value = parsedSettings.bgType;
-    
-    // console.log(savedSettings);
-}
 
+   //set the values of the elements in the form with the parsed data
+    nameEl.value = parsedSettings.name;
+    backgroundEl.options[parsedSettings.destination].selected = true;
+    timerEl.value = parsedSettings.sessionTime;
+    soundsEl.options[parsedSettings.sound].selected = true;
+    bgTypeEl.checked = true;
+};
 
 
 formEl.addEventListener('submit', handleSubmit);

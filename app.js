@@ -28,7 +28,6 @@ function handleSubmit(event){
 
     //create preferredSettings
     let preferredSettings = new UserSettings(userName.value, backgroundSelect.value, timerSelect.value, soundsSelect.value, bgType.value);
-    console.log(preferredSettings);
     
     //save preferredSettings
     saveToStorage(preferredSettings);

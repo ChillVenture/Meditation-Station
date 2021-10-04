@@ -22,10 +22,11 @@ main {
 }
 
 #sky-section {
+    background-position: top;
     margin: auto;
     margin-top: 0px;
-    width: 960px;
-    height: 500px;
+    width: 1000px;
+    height: 700px;
     z-index: 2;
     background-size: cover;
 }
@@ -60,9 +61,10 @@ main {
   }
 
   #foreground{
+      background-position: bottom;
       background-repeat: no-repeat;
-      height: 960px;
-      width: 960px;
+      height: 100%;
+      width: 1000px;
       z-index: 3;
       background-size: contain;
   }

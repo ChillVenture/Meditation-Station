@@ -6,10 +6,8 @@ body {
     height: 100%;
     background-color: rgb(22, 19, 22);
 }
-
 main {
     width: 100vw;
-
 }
 #logo  {
     margin-top: 20px;
@@ -24,9 +22,12 @@ main {
 }
 
 #sky-section {
-    position: center;
-    width: 100vw;
-    height: 100vw;
+    margin: auto;
+    margin-top: 0px;
+    width: 960px;
+    height: 500px;
+    z-index: 2;
+    background-size: cover;
 }
 /* #background {
     width: 100%;
@@ -57,4 +58,17 @@ main {
 .lightImage {
       color: rgba(77, 184, 231, 0.4668);
   }
+
+  #foreground{
+      background-repeat: no-repeat;
+      height: 960px;
+      width: 960px;
+      z-index: 3;
+      background-size: contain;
+  }
+  #contents{
+      height:100;
+      z-index: 1;
+  }
+  
   

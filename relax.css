@@ -23,13 +23,21 @@ main {
 }
 
 #sky-section {
-    background-position: top;
     margin: auto;
     margin-top: 0px;
-    width: 1000px;
-    height: 700px;
+    bottom: 0;
+    width: 100%;
+    height: auto;
     z-index: 2;
     background-size: cover;
+}
+#imagesContainer{
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+} 
+img{
+  position: absolute;
 }
 /* #background {
     width: 100%;
@@ -64,8 +72,9 @@ main {
   #foreground{
       background-position: bottom;
       background-repeat: no-repeat;
-      height: 100%;
-      width: 1000px;
+      bottom: 0;
+      height: auto;
+      width: 100%;
       z-index: 3;
       background-size: contain;
   }

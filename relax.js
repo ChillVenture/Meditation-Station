@@ -97,24 +97,29 @@ function getTimeofDay(){
 
   } else if (hour < 18){
 
-    console.log(daySkyPics[1].url);
     //pull random image from daySkyPics and set to sky layer in relax.html
-    skyEl.setAttribute.style.backgroundImage=`"url('/${daySkyPics[1].url}')"`;
+    skyEl.style.backgroundImage= `url('${daySkyPics[1].url}')`;
 
   } else if (hour < 19){
 
     //pull random image from sunsetSkyPics and set to sky layer in relax.html
-    skyEl.setAttribute.style.backgroundImage=`"url('${sunsetSkyPics[randIndex].url}')"`;
+    skyEl.style.backgroundImage=`url('${sunsetSkyPics[randIndex].url}')`;
 
   } else {
 
     //pull random image from nightSkyPics and set to sky layer in relax.html
-    skyEl.setAttribute.style.backgroundImage=`"url('${nightSkyPics[randIndex].url}')"`;
+    skyEl.setAttribute.style.backgroundImage=`url('${nightSkyPics[randIndex].url}')`;
 
   }
 }
 
+function getRandIndex(array){
+  let rawStorage = localStorage.getItem('savedSettings');
+  let parsedSettings = JSON.parse(rawStorage);
+  for (let i = 0; i < parsedSettings.length; i++){
 
+  }
+}
 
 // function darkMode() {
 //     var element = document.body;
@@ -132,4 +137,4 @@ function getTimeofDay(){
 // }
 
 getTimeofDay();
-
+getRandIndex();

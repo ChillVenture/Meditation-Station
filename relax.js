@@ -42,20 +42,20 @@ function Image(name, url) {
   }
 }
 
-new Image('city', 'images/city-foreground/seattle.png');
-new Image('city', 'images/city-foreground/city-foreground.png');
-new Image('day', 'images/day-sky/daytime.png');
-new Image('day', 'images/day-sky/daytime2.png');
-new Image('desert', 'images/desert-foreground/Desert-foreground.png');
-new Image('fields', 'images/field-foreground/sunflower-foreground.png');
-new Image('forest', 'images/forest-foreground/forest-color.png');
-new Image('forest', 'images/forest-foreground/forest-fore.png');
-new Image('mountain', 'images/mountain-foreground/mountain-foreground.png');
-new Image('night', 'images/night-sky/big-night-sky.png');
-new Image('night', 'images/night-sky/blue-night.png');
-new Image('night', 'images/night-sky/starry-night.png');
-new Image('night', 'images/night-sky/yellownight.png');
-new Image('sunset', 'images/sunset-sky/golden-sunrise.png');
+new Image('city', 'images/seattle.png');
+new Image('city', 'images/city-foreground.png');
+new Image('day', 'images/daytime.png');
+new Image('day', 'images/daytime2.png');
+new Image('desert', 'images/Desert-foreground.png');
+new Image('fields', 'images/sunflower-foreground.png');
+new Image('forest', 'images/forest-color.png');
+new Image('forest', 'images/forest-fore.png');
+new Image('mountain', 'images/mountain-foreground.png');
+new Image('night', 'images/big-night-sky.png');
+new Image('night', 'images/blue-night.png');
+new Image('night', 'images/starry-night.png');
+new Image('night', 'images/yellownight.png');
+new Image('sunset', 'images/golden-sunrise.png');
 
 
 //adding function to get user's time of day, which can be used to determine the background's sky
@@ -66,7 +66,7 @@ function getTimeofDay() {
 
   let skyEl = document.getElementById('sky-section');
 
-  if (hour < 10) {
+  if (hour < 11) {
 
     //pull random image from morningSkyPics and set to sky layer in relax.html
     skyEl.style.backgroundImage = `url('${morningSkyPics[0].url}')`;
@@ -76,7 +76,7 @@ function getTimeofDay() {
     //pull random image from daySkyPics and set to sky layer in relax.html
     skyEl.style.backgroundImage = `url('${daySkyPics[1].url}')`;
 
-  } else if (hour < 19) {
+  } else if (hour < 20) {
 
     //pull random image from sunsetSkyPics and set to sky layer in relax.html
     skyEl.style.backgroundImage = `url('${sunsetSkyPics[0].url}')`;

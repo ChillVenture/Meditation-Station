@@ -57,6 +57,7 @@ new Image('night', 'images/night-sky/starry-night.png');
 new Image('night', 'images/night-sky/yellownight.png');
 new Image('sunset', 'images/sunset-sky/golden-sunrise.png');
 
+let delayTime = 1000 * 60 * 5;
 
 //adding function to get user's time of day, which can be used to determine the background's sky
 function getTimeofDay(){
@@ -86,7 +87,7 @@ function getTimeofDay(){
     //pull random image from nightSkyPics and set to sky layer in relax.html
     skyEl.style.backgroundImage=`url('${nightSkyPics[1].url}')`;
 
-  }
+  } setTimeout(getTimeofDay, delayTime);
 }
 
 let rawStorage = localStorage.getItem('savedSettings');

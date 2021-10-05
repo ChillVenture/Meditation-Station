@@ -280,7 +280,7 @@ document.addEventListener('keyup', handleKeyup);
     sessionTimer.startTimer();
 
     //launch music
-    document.getElementById('sound').paused=false;
+    document.getElementById('sound').play();
     document.removeEventListener('keyup', handleKeyup);
   }
 };

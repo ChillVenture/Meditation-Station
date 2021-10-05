@@ -5,7 +5,7 @@
 // [key] = API key for use with premium subscriptions, be sure to obfuscate or hide this in your source code to prevent hijacking. Optional.
 // [options] = Additional options. Optional.
 
-const api_url = 'http://zenquotes.io/api/random/';
+const api_url = 'https://zenquotes.io/api/random/';
 
 async function getapi(url){
   let response = await fetch(url, {mode: 'cors'});

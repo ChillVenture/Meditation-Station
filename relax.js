@@ -234,18 +234,19 @@ function renderWelcome(){
 
 //-- SOUND SELECT --//
 
-function Sound(name, url) {
+function Sound(name, url, volume) {
   this.name = name;
   this.url = url;
+  this.volume = volume;
   Sound.library.push(this);
 }
 
 Sound.library = [];
 
-new Sound('rain', 'assets/sounds/light-rain.wav');
-new Sound('ocean', 'assets/sounds/harbor-waves.wav');
-new Sound('forest', 'assets/sounds/quiet-forest.wav');
-new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav');
+new Sound('rain', 'assets/sounds/light-rain.wav', 1);
+new Sound('ocean', 'assets/sounds/harbor-waves.wav', 1);
+new Sound('forest', 'assets/sounds/quiet-forest.wav', 1);
+new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav', 0.5);
 
 
 function loadSound() {
@@ -258,6 +259,7 @@ function loadSound() {
     if (userSound === sound.name) {
       console.log(sound.url);
       player.src = sound.url;
+      player.volume = sound.volume;
     }
   }
 }

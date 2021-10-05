@@ -21,6 +21,23 @@ main {
     margin-top: 0;
     float: left;
 }
+#welcome{
+  display:block;
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  left:20vw;
+  width: 60vw;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: rgb(47, 50, 56);
+  opacity: 0.8;
+  color: white;
+  transition-property: opacity;
+  transition-duration: 1s;
+  z-index: 4;
+  font-size: 52pt;
+}
 
 #sky-section {
     margin: auto;

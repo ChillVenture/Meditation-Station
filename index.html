@@ -11,34 +11,30 @@
 </head>
 
 <body>
-    <!-- <img src="images/homeBackgroun.jpg" alt="" id="bkgImage"> -->
+    
     <header>
-        <!--The header will include BOTH the logo and the Title, at this point title will not have animations.
-                 Replace the img src with our logo once designed.-->
+        <!--The header will include BOTH the logo and the Title, at this point title will not have animations.-->
         <div id='logo'>
             <img class="logoImage" src='images/logo.png'>
             <h1 class="title">Meditation Station</h1>
         </div>
     </header>
+    
+    <!--Container for quotes API-->
     <div id='inspiration'><q id="inspQuote" cite=""></q></div>
-    <!--Placeholder Container for quote API is here, id='inspiration'-->
+    
 
     <main>
 
         <p id="instructions">Please select from the options below to customize your experience. You may optionally
             select a timed session,
-            from 5 minutes to as long as you like. The dynamic background selection will change the appearance of your
-            background
-            based on the time of day at your location, whereas the static selection will maintain the same relaxing
-            background
-            throughout the day. </p>
+            from 5 minutes to as long as you like. </p>
 
         <form id='chooseSettings'>
             <fieldset form='chooseSettings'>
                 <heading>Customize Your Journey</heading>
 
                 <div id='nameContainer'>
-                    <!--will be centered above other fields, per wireframe-->
                     <input id='userName' type='text' placeholder="Enter Your Name">
                 </div>
 
@@ -59,21 +55,14 @@
                     <option id='ocean' value='ocean'>Ocean</option>
                     <option id='forest' value='forest'>Forest</option>
                     <option id='whiteNoise' value='whiteNoise'>White Noise</option>
-                    <option id='asmr' value='asmr'>ASMR</option>
                     <option id='music' value='music'>Music</option>
 
                 </select><br>
 
+
+                <!--Session Timer-->
                 <label>Session Length (min):</label><br>
                 <input type='number' id='timerSelect' step="5" /><br>
-
-                <!--Radio Buttons for Background Style, dynamic or static-->
-                <input class='radButton' id='Dynamic' type='radio' name='bgType' value='Dynamic' /> <label
-                    for='dynamicBg'>Dynamic</label><br>
-                <input class='radButton' id='Static' type='radio' name='bgType' value='Static' /> <label
-                    for='staticBg'>Static</label><br>
-
-                <!--optional randomize button may go here, if beyond our MVP-->
 
                 <!--Submit Button Here-->
                 <input class="submit-button" type='submit' value='Start Your Journey'

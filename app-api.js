@@ -1,20 +1,23 @@
-// https://zenquotes.io/api/[mode]/[key]?option1=value&option2=value
+//fetch random quote from Go Quotes API
 
-// https://zenquotes.io/api = ZenQuotes API URL. Required.
-// [mode] = Retrieval type [quotes, today, author, random]. Required.
-// [key] = API key for use with premium subscriptions, be sure to obfuscate or hide this in your source code to prevent hijacking. Optional.
-// [options] = Additional options. Optional.
+const api_url = 'https://goquotes-api.herokuapp.com/api/v1/random/1?type=tag&val=motivational';
 
-const api_url = 'https://zenquotes.io/api/random/';
-
-async function getapi(url){
-  let response = await fetch(url, {mode: 'cors'});
+async function getApi(url){
+  let response = await fetch(url);
   let data = await response.json();
-  console.log(typeof data);
-  console.log(data);
-}
+  let quote = data.quotes[0]
+  //console.log(typeof data);
+  //console.log(data);
+  console.log(quote.text);
+  console.log(quote.author);
 
-getapi(api_url)
+  parentEl = document.getElementById('inspQuote');
+  parentEl.innerText = quote.text;
+  parentEl.cite = quote.author;
+
+  //setTimeout(getApi, 10000, url);
+}
+getApi(api_url)
 
 // Attribution
-// Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a>
+//Inspirational quotes provided by <a href="https://goquotes.docs.apiary.io/" target="_blank">Go Quotes API</a>

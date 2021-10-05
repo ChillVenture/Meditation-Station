@@ -6,12 +6,11 @@ let mySettings = [];
 let formEl = document.getElementById('chooseSettings');
 
 //constructor to create UserSettings Object
-function UserSettings(userName, destination, sessionTime, sound, bgStyle) {
+function UserSettings(userName, destination, sessionTime, sound) {
   this.name = userName;
   this.destination = destination;
   this.sessionTime = sessionTime;
   this.sound = sound;
-  this.bgStyle = bgStyle;
   mySettings.push(this);//send settings to mySettings array
 }
 
@@ -22,10 +21,10 @@ let preferredSettings;
 function handleSubmit(event){
   event.preventDefault();
 
-  let {userName, backgroundSelect, timerSelect, soundsSelect, bgType} = event.target;
+  let {userName, backgroundSelect, timerSelect, soundsSelect} = event.target;
 
   //create preferredSettings
-  let preferredSettings = new UserSettings(userName.value, backgroundSelect.value, timerSelect.value, soundsSelect.value, bgType.value);
+  let preferredSettings = new UserSettings(userName.value, backgroundSelect.value, timerSelect.value, soundsSelect.value);
 
   //save preferredSettings
   saveToStorage(preferredSettings);
@@ -54,7 +53,6 @@ function retrieveSettings(){
   let backgroundEl = document.getElementById('backgroundSelect');
   let timerEl = document.getElementById('timerSelect');
   let soundsEl = document.getElementById('soundsSelect');
-  let bgTypeEl = document.getElementById(parsedSettings.bgStyle);
 
 
   //set the values of the elements in the form with the parsed data
@@ -62,7 +60,6 @@ function retrieveSettings(){
   backgroundEl.options[parsedSettings.destination].selected = true;
   timerEl.value = parsedSettings.sessionTime;
   soundsEl.options[parsedSettings.sound].selected = true;
-  bgTypeEl.checked = true;
 }
 
 

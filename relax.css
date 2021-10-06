@@ -1,0 +1,65 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    width: 100vw;
+
+}
+#logo {
+    margin: 10px;
+    height: 70px;
+    font-size: 30px;
+    background-color: #7892c2;
+}
+
+#sky-section {
+    position: center;
+    width: 100%;
+    height: 50%;
+}
+#background {
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: cover;
+
+}
+
+#hidden-controls {
+        
+    }
+
+#backhome, #dark-mode {
+    float: right;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:33px;
+	border:4px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:24px;
+	padding:15px 52px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+
+#light-mode {
+    filter: brightness(150%);
+  }
+  
+#dark-mode:hover{
+    filter: brightness(30%);
+  }
+
+#backhome:hover {
+      background-color: lightskyblue;
+  }

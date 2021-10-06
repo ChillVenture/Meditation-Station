@@ -13,8 +13,10 @@
 <!-- /* entire body of the page*/ -->
 
 <body>
+    
     <!-- /* inner container that contains everything*/ -->
     <main id="main">
+        
         <!-- /* container housing all the data inside it*/ -->
         <div id="contents">
 
@@ -28,7 +30,8 @@
             </div>
 
             <!-- /* top page presenting the the sun/moon space*/ -->
-            <div id="sky-section">
+            <div id="sky-section"  >
+                
                 <!-- /* space for styled text */ -->
 
                 <p id="fading-message"></p>
@@ -36,17 +39,22 @@
 
             <!-- /* represents either a full/lower half of screen background image */ -->
             <div>
-                <img id="background" class="lightImage" src="images/static/uluru.jpg" alt="">
+                <!-- <img id="background" class="lightImage" src="images/static/uluru.jpg" alt=""> -->
             </div>
 
             <!-- /* hidden menu appears when mouse overs over arrow*/ -->
             <div id="hidden-controls">disappearing controls
                 <!-- button linking to homepage*/ -->
-
+                
                 <input id="backhome" type="button" onclick="location.href='index.html';" value="Go to home" />
 
                 <!-- /* shows how much time elapsed */ -->
                 <p id="timer">Timer</p>
+                <!-- right side of the control menu -->
+                <!-- adding comment to make change for commit -->
+                <audio id="sound" controls loop>
+                  <source src="assets/sounds/light-rain.wav" type="audio/mpeg">
+                </audio>
                 <!-- /* right side of the control menu */ -->
                 <button id="controls-button">Controls</button>
             </div>
@@ -54,8 +62,8 @@
 
     </main>
     <script src="relax.js"></script>
-    <script src='app.js'></script>
-    <script src='app-api.js'></script>
+    <!-- <script src='app.js'></script> -->
+    <!-- <script src='app-api.js'></script> -->
 </body>
 
 </html>

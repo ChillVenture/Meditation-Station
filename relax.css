@@ -2,19 +2,25 @@
 body {
     display: flex;
     justify-content: center;
+    justify-items: center;
     height: 100vh;
-    margin: 0;
+    
 }
 
 main {
     width: 100vw;
 
 }
-#logo {
-    margin: 10px;
+#logo  {
+    margin-top: 20px;
     height: 70px;
-    font-size: 30px;
-    background-color: #7892c2;
+    text-align:center;
+    font-size: 60px;
+   
+}
+#logoImage {
+    margin-top: 0;
+    float: left;
 }
 
 #sky-section {
@@ -28,10 +34,10 @@ main {
     background-repeat: no-repeat;
     background-position: center ;
     background-size: cover;
-
 }
 
 #hidden-controls {
+    
         
     }
 
@@ -52,14 +58,10 @@ main {
 	text-shadow:0px 1px 0px #283966;
 }
 
-#light-mode {
-    filter: brightness(150%);
+.lightImage {
+    filter: brightness(100%);
   }
   
-#dark-mode:hover{
+.darkImage{
     filter: brightness(30%);
-  }
-
-#backhome:hover {
-      background-color: lightskyblue;
   }

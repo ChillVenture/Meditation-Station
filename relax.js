@@ -8,13 +8,13 @@ let logo = document.getElementById('logo');
 darkButton.addEventListener('click', (event) => {
 
     if (bkgImage.className === 'lightImage') {
-        bkgImage.className = 'darkImage'
+        bkgImage.className = 'darkImage';
         //logo.className = 'darkImage';
-        darkButton.innerText = "Light Mode";
+        darkButton.innerText = "Day Mode";
         //darkButton.className = 'lightMode';
     } else if (bkgImage.className === 'darkImage') {
         bkgImage.className = 'lightImage'
-        darkButton.innerText = "Dark Mode";
+        darkButton.innerText = "Night Mode";
         //darkButton.className = 'lightMode';
 
     }

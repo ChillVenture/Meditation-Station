@@ -7,19 +7,48 @@ let logo = document.getElementById('logo');
 
 darkButton.addEventListener('click', (event) => {
 
-    if (bkgImage.className === 'lightImage') {
-        bkgImage.className = 'darkImage'
-        //logo.className = 'darkImage';
-        darkButton.innerText = "Light Mode";
-        //darkButton.className = 'lightMode';
-    } else if (bkgImage.className === 'darkImage') {
-        bkgImage.className = 'lightImage'
-        darkButton.innerText = "Dark Mode";
-        //darkButton.className = 'lightMode';
+  if (bkgImage.className === 'lightImage') {
+    bkgImage.className = 'darkImage';
+    //logo.className = 'darkImage';
+    darkButton.innerText = "Light Mode";
+    //darkButton.className = 'lightMode';
+  } else if (bkgImage.className === 'darkImage') {
+    bkgImage.className = 'lightImage';
+    darkButton.innerText = "Dark Mode";
+    //darkButton.className = 'lightMode';
 
-    }
+  }
 
 });
+
+
+
+//adding function to get user's time of day, which can be used to determine the background's sky
+function getTimeofDay(){
+  let today = new Date(),
+    hour = today.getHours();
+  console.log(hour);
+  // min = today.getMinutes(), THESE MAY NOT BE NECESSARY AT THE MOMENT
+  // sec = today.getSeconds();
+
+  if (hour < 10){
+
+    //use morning/dawn image(s)
+
+  } else if (hour < 18){
+
+    //use day image(s)
+
+  } else if (hour < 19){
+
+    //use sunset img(s)
+
+  } else {
+
+    //use night sky img(s)
+  }
+}
+
 
 
 // function darkMode() {
@@ -36,4 +65,6 @@ darkButton.addEventListener('click', (event) => {
 //     darkButton.innerText = "Dark Mode";
 
 // }
+
+getTimeofDay();
 

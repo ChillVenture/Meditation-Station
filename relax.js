@@ -75,6 +75,7 @@ function sessionEnd(){
   chime.play();
 }
 
+
 function sessionTimer(userTime){
   let minTimer = userTime; //change to pull from local storage object
 
@@ -105,8 +106,13 @@ function timerCount(secTimer){
   timerEl.innerText = text;
 
   let secRemaining = (sec + (60*min)) - 1;
-  console.log(secRemaining);
+  // console.log(secRemaining);
   if (sec !== 0 || min !== 0){
     setTimeout(timerCount, 1000, secRemaining);
+  }else{
+    sessionEnd();
   }
 }
+
+let sessionDuration = parseInt(savedSettings[0].sessionTime);
+sessionTimer(sessionDuration);

@@ -3,6 +3,9 @@
 const api_url = 'https://goquotes-api.herokuapp.com/api/v1/random/1?type=tag&val=motivational';
 
 async function getApi(url){
+  parentEl = document.getElementById('inspQuote');
+  parentEl.style.animation = '';
+  
   let response = await fetch(url);
   let data = await response.json();
   let quote = data.quotes[0]
@@ -10,10 +13,11 @@ async function getApi(url){
   //console.log(data);
   console.log(quote.text);
   console.log(quote.author);
-
-  parentEl = document.getElementById('inspQuote');
+  
   parentEl.innerText = quote.text;
   parentEl.cite = quote.author;
+  
+  parentEl.style.animation = 'inspFly 10s linear 1';
 
   //setTimeout(getApi, 10000, url);
 }

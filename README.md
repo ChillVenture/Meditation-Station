@@ -88,9 +88,3 @@ via github?
 * What is your Git flow?
 A main branch that has a work floor type branch each team member works out of and then when the a feature is working we will add it to the main branch 
 Will you be using a PR review workflow? If so, consider:
-<<<<<<< HEAD
-and when each member has provided a thumbs up we will merge it into the next step of the gitflow. We plan to send multiple PRs of possibly finished work to the work floor branch and then intend to merge completed sections into the Main branch for display purposes. There will be no set amount of required pushes to the workflow branch. The repo owner will be in charge of merging the PRs. Lastly, we will toss the pull requests into our group slack 
-=======
-and when each member has provided a thumbs up we will merge it into the next step of the gitflow. We plan to send multiple PRs of possibly finished work to the work floor branch and then intend to merge completed sections into the Main branch for display purposes. There will be no set amount of required pushes to the workflow branch. The repo owner will be in charge of merging the PRs. Lastly, we will toss the pull requests into our group slack 
-
->>>>>>> a3d70f9abd70fc00abd1d61ea740fc0bf665abb0

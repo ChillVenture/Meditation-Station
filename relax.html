@@ -5,46 +5,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relaxing Space</title>
+    <title>ChillVenture</title>
+    <link rel="shortcut icon" type="icon" href="images/logo.png" />
     <link rel="stylesheet" href="relax.css">
 
 </head>
-<!-- entire body of the page -->
+<!-- /* entire body of the page*/ -->
 
 <body>
-    <!-- inner container that contains everything -->
-    <main>
-        <!-- container housing all the data inside it -->
+    <!-- /* inner container that contains everything*/ -->
+    <main id="main">
+        <!-- /* container housing all the data inside it*/ -->
         <div id="contents">
 
-            <!-- company logo goes here -->
-            <div id="logo">logo</div>
+            <!-- /* company logo goes here*/ -->
+            <div class="lightImage" id="logo">ChillVenture
+                <img id="logoImage" src="images/logo.png" alt="">
 
-            <!-- top page presenting the the sun/moon space -->
-            <div id="sky-section">
-                <!-- space for styled text -->
-                <p id="fading-message">Fading greeting message</p>
+                <!-- create a button for dark mode -->
+
+                <button class="lightImage" id="dark-mode">Dark Mode</button>
             </div>
 
-            <!-- represents either a full/lower half of screen background image -->
-            <div id="background">background image</div>
+            <!-- /* top page presenting the the sun/moon space*/ -->
+            <div id="sky-section">
+                <!-- /* space for styled text */ -->
+
+                <p id="fading-message"></p>
+            </div>
+
+            <!-- /* represents either a full/lower half of screen background image */ -->
+            <div>
+                <img id="background" class="lightImage" src="images/static/uluru.jpg" alt="">
+            </div>
 
             <!-- /* hidden menu appears when mouse overs over arrow*/ -->
             <div id="hidden-controls">disappearing controls
-                <!-- left side of the menu a button linking to homepage -->
-                <button id="backhome">Go to home</button>
-                <!-- shows how much time elapsed -->
+                <!-- button linking to homepage*/ -->
+
+                <input id="backhome" type="button" onclick="location.href='index.html';" value="Go to home" />
+
+                <!-- /* shows how much time elapsed */ -->
                 <p id="timer">Timer</p>
                 <!-- right side of the control menu -->
                 <!-- adding comment to make change for commit -->
                 <audio controls loop>
                   <source src="assets/sounds/mixkit-quiet-forest-ambience-1220.wav" type="audio/mpeg">
                 </audio>
+                <!-- /* right side of the control menu */ -->
+                <button id="controls-button">Controls</button>
             </div>
         </div>
 
-
     </main>
+    <script src="relax.js"></script>
+    <script src='app.js'></script>
+    <script src='app-api.js'></script>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 # Meditation-Station
 
+
 ## User Stories and Stretch Goals
 
 ### MVP User Stories
@@ -16,6 +17,7 @@
 * As a user, I want the page to dynamically change as time passes.
 * As a user, I want the meditation to be compatible with mobile devices.
 * As a user, I want the option to randomize the page, or rotate through a random selection.
+
 
 ## Team Agreement
 

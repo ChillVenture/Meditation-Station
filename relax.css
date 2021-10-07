@@ -151,10 +151,11 @@ img{
 #fly{
   position:relative;
   transition-property: top;
-  top: 80px;
+  top: 40px;
   transition-duration: 0.5s;
 }
 #fly img{
+  position:relative;
   display:block;
   margin:auto;
   height: 25px;

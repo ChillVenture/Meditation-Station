@@ -17,27 +17,27 @@ let sunsetSkyPics = [];
 let morningSkyPics = [];
 
 
-function Image (name, url) {
+function Image(name, url) {
   this.name = name;
   this.url = `${url}`;
 
-  if (name === 'city'){
+  if (name === 'city') {
     cityPics.push(this);
-  } if (name === 'desert'){
+  } if (name === 'desert') {
     desertPics.push(this);
-  } if (name === 'fields'){
+  } if (name === 'fields') {
     fieldPics.push(this);
-  } if (name === 'forest'){
+  } if (name === 'forest') {
     forestPics.push(this);
-  } if (name === 'mountain'){
+  } if (name === 'mountain') {
     mountainPics.push(this);
-  } if (name === 'night'){
+  } if (name === 'night') {
     nightSkyPics.push(this);
-  } if (name === 'day'){
+  } if (name === 'day') {
     daySkyPics.push(this);
-  } if (name === 'sunset'){
+  } if (name === 'sunset') {
     sunsetSkyPics.push(this);
-  } if (name === 'morning'){
+  } if (name === 'morning') {
     morningSkyPics.push(this);
   }
 }
@@ -59,32 +59,32 @@ new Image('sunset', 'images/sunset-sky/golden-sunrise.png');
 
 
 //adding function to get user's time of day, which can be used to determine the background's sky
-function getTimeofDay(){
+function getTimeofDay() {
   let today = new Date(),
     hour = today.getHours();
   console.log(hour, 'your local hour');
 
   let skyEl = document.getElementById('sky-section');
 
-  if (hour < 10){
+  if (hour < 10) {
 
     //pull random image from morningSkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage=`url('${morningSkyPics[0].url}')`;
+    skyEl.style.backgroundImage = `url('${morningSkyPics[0].url}')`;
 
-  } else if (hour < 18){
+  } else if (hour < 18) {
 
     //pull random image from daySkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage= `url('${daySkyPics[1].url}')`;
+    skyEl.style.backgroundImage = `url('${daySkyPics[1].url}')`;
 
-  } else if (hour < 19){
+  } else if (hour < 19) {
 
     //pull random image from sunsetSkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage=`url('${sunsetSkyPics[0].url}')`;
+    skyEl.style.backgroundImage = `url('${sunsetSkyPics[0].url}')`;
 
   } else {
 
     //pull random image from nightSkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage=`url('${nightSkyPics[1].url}')`;
+    skyEl.style.backgroundImage = `url('${nightSkyPics[1].url}')`;
 
   }
 }
@@ -93,76 +93,81 @@ let rawStorage = localStorage.getItem('savedSettings');
 let parsedSettings = JSON.parse(rawStorage)[0];
 
 
-function getForeground(){
+function getForeground() {
   //get user data for the foreground choice
   let foregroundEl = document.getElementById('foreground');
   console.log(parsedSettings.destination);
-  if (parsedSettings.destination === 'desert'){
-    foregroundEl.style.backgroundImage=`url('${desertPics[0].url}')`;
-  } if (parsedSettings.destination === 'Mountains'){
-    foregroundEl.style.backgroundImage=`url('${mountainPics[0].url}')`;
-  } if (parsedSettings.destination === 'fields'){
-    foregroundEl.style.backgroundImage=`url('${fieldPics[0].url}')`;
-  } if (parsedSettings.destination === 'cityScape'){
-    foregroundEl.style.backgroundImage=`url('${cityPics[0].url}')`;
-  } if (parsedSettings.destination === 'forest'){
-    foregroundEl.style.backgroundImage=`url('${forestPics[0].url}')`;
+  if (parsedSettings.destination === 'desert') {
+    foregroundEl.style.backgroundImage = `url('${desertPics[0].url}')`;
+  } if (parsedSettings.destination === 'Mountains') {
+    foregroundEl.style.backgroundImage = `url('${mountainPics[0].url}')`;
+  } if (parsedSettings.destination === 'fields') {
+    foregroundEl.style.backgroundImage = `url('${fieldPics[0].url}')`;
+  } if (parsedSettings.destination === 'cityScape') {
+    foregroundEl.style.backgroundImage = `url('${cityPics[0].url}')`;
+  } if (parsedSettings.destination === 'forest') {
+    foregroundEl.style.backgroundImage = `url('${forestPics[0].url}')`;
   }
 }
 
 
-
 //Create Timer based on user input.
-function sessionEnd(){
+
+function Timer(minutes) {
+  this.minute = minutes;
+  this.second = minutes * 60;
+  this.secondRemaining = minutes * 60;
+  this.millisecond = minutes * 60 * 1000;
+  this.timerHash = null;
+}
+
+// setInterval is global scoped and can't use this.
+// we get around this by setting the object scope in a variable "_this"
+// a closure must be made to utilize the new _this variable.
+Timer.prototype.startTimer = function () {
+  let _this = this;
+  this.timerHash = setInterval(function(){_this.timerCount();}, 1000);
+};
+
+// method for end of timer.
+Timer.prototype.sessionEnd = function () {
   let bgSound = document.getElementById('sound');
   bgSound.pause();
 
   let chime = new Audio('assets/sounds/chime.wav');
   chime.volume = 0.2;
   chime.play();
-}
+};
 
-
-function sessionTimer(userTime){
-  let minTimer = userTime; //change to pull from local storage object
-
-  let secTimer = minTimer * 60;
-  let msTimer = secTimer * 1000; //convert userMinutes to milliseconds
-
-  setTimeout(sessionEnd, msTimer); //set timer to sessionEnd
-
-  //Create and track timer
-  timerCount(secTimer);
-}
-
-function timerCount(secTimer){
-  let min = Math.floor(secTimer/60);
-  let sec = secTimer % 60;
-  // console.log(min);
-  // console.log(sec);
+// timer countdown method
+Timer.prototype.timerCount = function () {
+  //get timer element
   let timerEl = document.getElementById('timer');
 
-  //create seconds variable for display purposes.
+  //figure out minutes and seconds remaining to display
+  let minDisp = Math.floor(this.secondRemaining / 60);
+  let sec = this.secondRemaining % 60;
   let secDisp;
-  if(sec < 10){
+  if (sec < 10) {
     secDisp = '0' + sec;
-  }else{secDisp = sec;}
+  } else { secDisp = sec; }
 
-  // console.log(sec);
-  let text = `Time Remaining: ${min}:${secDisp}`;
+  //display time remaining
+  let text = `Time Remaining: ${minDisp}:${secDisp}`;
   timerEl.innerText = text;
 
-  let secRemaining = (sec + (60*min)) - 1;
-  // console.log(secRemaining);
-  if (sec !== 0 || min !== 0){
-    setTimeout(timerCount, 1000, secRemaining);
-  }else{
-    sessionEnd();
+  //end if timer up, decrement if time remaining > 0
+  if (this.secondRemaining > 0) {
+    this.secondRemaining -= 1;
+  } else {
+    clearInterval(this.timerHash);
+    this.sessionEnd();
   }
-}
+};
 
-let sessionDuration = parseInt(savedSettings[0].sessionTime);
-sessionTimer(sessionDuration);
+let parsedUserMin = parseInt(parsedSettings.sessionTime);
+let sessionTimer = new Timer(parsedUserMin);
+//sessionTimer.startTimer();
 
 getTimeofDay();
 getForeground();

@@ -22,8 +22,10 @@
 
             
             <div class="lightImage" id="logo">ChillVenture
+
             <img id="logoImage" src="images/logo.png" alt="ChillVenture">
         </div>
+              
 
             
             <!-- sky images will be rendered to this div. this will need the lowest Z Index-->
@@ -37,15 +39,15 @@
             <!-- /* hidden menu appears when mouse overs over arrow*/ -->
             <div id="hidden-controls">disappearing controls
                 <!-- button linking to homepage*/ -->
-
+                
                 <input id="backhome" type="button" onclick="location.href='index.html';" value="Go to home" />
 
                 <!-- /* shows how much time elapsed */ -->
                 <p id="timer">Timer</p>
                 <!-- right side of the control menu -->
                 <!-- adding comment to make change for commit -->
-                <audio controls loop>
-                  <source src="assets/sounds/mixkit-quiet-forest-ambience-1220.wav" type="audio/mpeg">
+                <audio id="sound" controls loop>
+                  <source src="assets/sounds/light-rain.wav" type="audio/mpeg">
                 </audio>
                 <!-- /* right side of the control menu */ -->
                 <button id="controls-button">Controls</button>
@@ -54,8 +56,8 @@
 
     </main>
     <script src="relax.js"></script>
-    <script src='app.js'></script>
-    <script src='app-api.js'></script>
+    <!-- <script src='app.js'></script> -->
+    <!-- <script src='app-api.js'></script> -->
 </body>
 
 </html>

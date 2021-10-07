@@ -2,10 +2,10 @@
 // let darkImage = document.querySelector('darkImage');
 // let lightImage = document.querySelector('lightImage');
 // let bkgImage = document.getElementById('background');
-
-
 // let logo = document.getElementById('logo');
 
+
+//-- IMAGE SELECTION AND RENDER  --//
 let cityPics = [];
 let desertPics = [];
 let fieldPics = [];
@@ -111,7 +111,7 @@ function getForeground() {
 }
 
 
-//Create Timer based on user input.
+//--  TIMER  --//
 
 function Timer(minutes) {
   this.minute = minutes;
@@ -172,7 +172,8 @@ sessionTimer.startTimer();
 getTimeofDay();
 getForeground();
 
-//fly-in menu script
+
+//--  FLY-IN MENU  --//
 let menuShow = false;
 
 let arrow = document.querySelector('#fly img');
@@ -188,7 +189,7 @@ function handleClick(){
     arrow.style.transform = 'scaleY(1)';
     menuShow = true;
   }else if(menuShow){
-    flyCont.style.top = '80px';
+    flyCont.style.top = '40px';
     menu.style.opacity = 0;
     arrow.style.transform = 'scaleY(-1)';
     menuShow = false;
@@ -196,3 +197,27 @@ function handleClick(){
 }
 
 
+//-- SOUND SELECT --//
+
+function Sound(name, url){
+  this.name = name;
+  this.url = url;
+  Sound.library = [];
+  Sound.library.push(this);
+}
+
+new Sound('rain', 'assets/sounds/light-rain.wav');
+new Sound('ocean', 'assets/sounds/harbor-waves.wav');
+new Sound('forest', 'assets/sounds/quiet-forest.wav');
+new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav');
+
+let player = document.querySelector('#sound source');
+let soundSelect = parsedSettings.sound;
+
+for (let i = 0; i < Sound.library.length; i++){
+  let soundCheck = Sound.library[i];
+  if(soundCheck = soundCheck.name){
+    player.src = soundCheck.url;
+  }
+
+}

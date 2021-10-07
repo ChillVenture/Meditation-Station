@@ -33,30 +33,37 @@
 
             
             <!-- sky images will be rendered to this div. this will need the lowest Z Index-->
+
             <div id='imagesContainer'>
                <img src='' id="sky-section">
                <img src='' id="foreground">
             <!-- <div id='foreground'></div>  -->
+          
             </div>
       
-            
+            <div id="fly">
+              <img src="images/icons8-expand-arrow-96.png" alt="">
             <!-- /* hidden menu appears when mouse overs over arrow*/ -->
-            <div id="hidden-controls">disappearing controls
-                <!-- button linking to homepage*/ -->
-                
-                <input id="backhome" type="button" onclick="location.href='index.html';" value="Go to home" />
+            <div id="hidden-controls">
 
-                <!-- /* shows how much time elapsed */ -->
-                <p id="timer">Timer</p>
-                <!-- right side of the control menu -->
-                <!-- adding comment to make change for commit -->
-                <audio id="sound" controls loop>
-                  <source src="assets/sounds/light-rain.wav" type="audio/mpeg">
-                </audio>
-                <!-- /* right side of the control menu */ -->
-                <button id="controls-button">Controls</button>
+              <!-- <div><img src="images/icons8-expand-arrow-96.png" alt=""></div> -->
+              
+              <!-- right side of the control menu -->
+              <audio id="sound" controls loop>
+                <source src="assets/sounds/light-rain.wav" type="audio/mpeg">
+              </audio>
+              
+              <!-- /* shows how much time elapsed */ -->
+              <p id="timer">Timer</p>
+
+              <!-- button linking to homepage*/ -->
+              <input id="backhome" type="button" onclick="location.href='index.html';" value="Go to home" />
+
+            </div>
             </div>
         </div>
+
+        <footer><p><a target="_blank" href="https://icons8.com/icon/44002/expand-arrow">Expand Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></p></footer>
 
     </main>
     <script src="relax.js"></script>

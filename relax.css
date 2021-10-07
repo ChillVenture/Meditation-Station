@@ -146,7 +146,7 @@ main {
   background-color: #2a2a35;
   border-radius: 25px;
   height: 75px;
-  opacity: 0.8;
+  opacity: 0;
   transition-property: opacity;
   transition-duration:0.5s;
 }

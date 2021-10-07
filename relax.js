@@ -42,20 +42,24 @@ function Image(name, url) {
   }
 }
 
-new Image('city', 'images/seattle.png');
-new Image('city', 'images/city-foreground.png');
-new Image('day', 'images/daytime.png');
-new Image('day', 'images/daytime2.png');
-new Image('desert', 'images/Desert-foreground.png');
-new Image('fields', 'images/sunflower-foreground.png');
-new Image('forest', 'images/forest-color.png');
-new Image('forest', 'images/forest-fore.png');
-new Image('mountain', 'images/mountain-foreground.png');
-new Image('night', 'images/big-night-sky.png');
-new Image('night', 'images/blue-night.png');
-new Image('night', 'images/starry-night.png');
-new Image('night', 'images/yellownight.png');
-new Image('sunset', 'images/golden-sunrise.png');
+new Image('city', 'images/city-foreground/seattle.png');
+new Image('city', 'images/city-foreground/city-skyline.png');
+new Image('day', 'images/day-sky/daytime.png');
+new Image('day', 'images/day-sky/daytime2.png');
+new Image('day', 'images/day-sky/blue-sky.jpeg');
+new Image('day', 'images/day-sky/rays-sky.jpeg');
+new Image('desert', 'images/desert-foreground/desert-mountains.png');
+new Image('fields', 'images/field-foreground/field-farm.png');
+new Image('forest', 'images/forest-foreground/forest1.png');
+new Image('forest', 'images/forest-foreground/forest-color960.png');
+new Image('forest', 'images/forest-foreground/forest-fore.png');
+new Image('mountain', 'images/mountain-foreground/mountain-foreground.png');
+new Image('night', 'images/night-sky/big-night-sky.png');
+new Image('night', 'images/night-sky/blue-night.png');
+new Image('night', 'images/night-sky/starry-night.png');
+new Image('night', 'images/night-sky/yellownight.png');
+new Image('night', 'images/night-sky/full-moon.jpeg');
+new Image('sunset', 'images/sunset-sky/golden-sunrise.png');
 
 
 //adding function to get user's time of day, which can be used to determine the background's sky
@@ -69,44 +73,44 @@ function getTimeofDay() {
   if (hour < 11) {
 
     //pull random image from morningSkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage = `url('${morningSkyPics[0].url}')`;
+    skyEl.src= `${morningSkyPics[0].url}`;
 
   } else if (hour < 18) {
 
     //pull random image from daySkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage = `url('${daySkyPics[1].url}')`;
+    skyEl.src = `${daySkyPics[3].url}`;
 
   } else if (hour < 20) {
 
     //pull random image from sunsetSkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage = `url('${sunsetSkyPics[0].url}')`;
+    skyEl.src = `${sunsetSkyPics[0].url}`;
 
   } else {
 
     //pull random image from nightSkyPics and set to sky layer in relax.html
-    skyEl.style.backgroundImage = `url('${nightSkyPics[1].url}')`;
+    skyEl.src = `${nightSkyPics[3].url}`;
 
   }
 }
 
 let rawStorage = localStorage.getItem('savedSettings');
 let parsedSettings = JSON.parse(rawStorage)[0];
-
+// let randIndex = Math.floor(Math.random()*4); to use if we have 4 images in each
 
 function getForeground() {
   //get user data for the foreground choice
   let foregroundEl = document.getElementById('foreground');
   console.log(parsedSettings.destination);
   if (parsedSettings.destination === 'desert') {
-    foregroundEl.style.backgroundImage = `url('${desertPics[0].url}')`;
+    foregroundEl.src= `${desertPics[0].url}`;
   } if (parsedSettings.destination === 'Mountains') {
-    foregroundEl.style.backgroundImage = `url('${mountainPics[0].url}')`;
+    foregroundEl.src = `${mountainPics[0].url}`;
   } if (parsedSettings.destination === 'fields') {
-    foregroundEl.style.backgroundImage = `url('${fieldPics[0].url}')`;
+    foregroundEl.src = `${fieldPics[0].url}`;
   } if (parsedSettings.destination === 'cityScape') {
-    foregroundEl.style.backgroundImage = `url('${cityPics[0].url}')`;
+    foregroundEl.src = `${cityPics[0].url}`;
   } if (parsedSettings.destination === 'forest') {
-    foregroundEl.style.backgroundImage = `url('${forestPics[0].url}')`;
+    foregroundEl.src = `${forestPics[0].url}`;
   }
 }
 

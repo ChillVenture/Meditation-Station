@@ -13,37 +13,33 @@
 <!-- /* entire body of the page*/ -->
 
 <body>
-    
+        
     <!-- /* inner container that contains everything*/ -->
     <main id="main">
+
         <div id='quotes'>
           <q id="inspQuote" cite=""></q>
         </div>
         <!-- /* container housing all the data inside it*/ -->
+
         <div id="contents">
 
-            <!-- /* company logo goes here*/ -->
+            
             <div class="lightImage" id="logo">ChillVenture
-                <img id="logoImage" src="images/logo.png" alt="">
 
-                <!-- create a button for dark mode -->
+            <img id="logoImage" src="images/logo.png" alt="ChillVenture">
+        </div>
+              
 
-                <button class="lightImage" id="dark-mode">Day Mode</button>
-            </div>
-
-            <!-- /* top page presenting the the sun/moon space*/ -->
+            
+            <!-- sky images will be rendered to this div. this will need the lowest Z Index-->
             <div id="sky-section"  >
-                
-                <!-- /* space for styled text */ -->
-
-                <p id="fading-message"></p>
+                <p id="fading-message"></p><!--insp. quotes can go here-->
+                <!--foreground images will be rendered here as a bkground attribute. highest Z index-->
+            <div id='foreground'></div> 
             </div>
-
-            <!-- /* represents either a full/lower half of screen background image */ -->
-            <div>
-                <!-- <img id="background" class="lightImage" src="images/static/uluru.jpg" alt=""> -->
-            </div>
-
+      
+            
             <!-- /* hidden menu appears when mouse overs over arrow*/ -->
             <div id="hidden-controls">disappearing controls
                 <!-- button linking to homepage*/ -->

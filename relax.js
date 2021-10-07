@@ -172,4 +172,27 @@ sessionTimer.startTimer();
 getTimeofDay();
 getForeground();
 
+//fly-in menu script
+let menuShow = false;
+
+let arrow = document.querySelector('#fly img');
+arrow.addEventListener('click', handleClick);
+
+//  handler
+function handleClick(){
+  let flyCont = document.getElementById('fly');
+  let menu = document.getElementById('hidden-controls');
+  if (!menuShow){
+    flyCont.style.top = 0;
+    menu.style.opacity = 0.8;
+    arrow.style.transform = 'scaleY(1)';
+    menuShow = true;
+  }else if(menuShow){
+    flyCont.style.top = '80px';
+    menu.style.opacity = 0;
+    arrow.style.transform = 'scaleY(-1)';
+    menuShow = false;
+  }
+}
+
 

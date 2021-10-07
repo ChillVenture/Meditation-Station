@@ -2,10 +2,10 @@
 // let darkImage = document.querySelector('darkImage');
 // let lightImage = document.querySelector('lightImage');
 // let bkgImage = document.getElementById('background');
-
-
 // let logo = document.getElementById('logo');
 
+
+//-- IMAGE SELECTION AND RENDER  --//
 let cityPics = [];
 let desertPics = [];
 let fieldPics = [];
@@ -73,7 +73,7 @@ function getTimeofDay() {
   if (hour < 11) {
 
     //pull random image from morningSkyPics and set to sky layer in relax.html
-    skyEl.src= `${morningSkyPics[0].url}`;
+    skyEl.src = `${morningSkyPics[0].url}`;
 
   } else if (hour < 18) {
 
@@ -102,7 +102,7 @@ function getForeground() {
   let foregroundEl = document.getElementById('foreground');
   console.log(parsedSettings.destination);
   if (parsedSettings.destination === 'desert') {
-    foregroundEl.src= `${desertPics[0].url}`;
+    foregroundEl.src = `${desertPics[0].url}`;
   } if (parsedSettings.destination === 'Mountains') {
     foregroundEl.src = `${mountainPics[0].url}`;
   } if (parsedSettings.destination === 'fields') {
@@ -115,7 +115,7 @@ function getForeground() {
 }
 
 
-//Create Timer based on user input.
+//--  TIMER  --//
 
 function Timer(minutes) {
   this.minute = minutes;
@@ -130,7 +130,7 @@ function Timer(minutes) {
 // a closure must be made to utilize the new _this variable.
 Timer.prototype.startTimer = function () {
   let _this = this;
-  this.timerHash = setInterval(function(){_this.timerCount();}, 1000);
+  this.timerHash = setInterval(function () { _this.timerCount(); }, 1000);
 };
 
 // method for end of timer.
@@ -176,23 +176,24 @@ sessionTimer.startTimer();
 getTimeofDay();
 getForeground();
 
-//fly-in menu script
+
+//--  FLY-IN MENU  --//
 let menuShow = false;
 
 let arrow = document.querySelector('#fly img');
 arrow.addEventListener('click', handleClick);
 
 //  handler
-function handleClick(){
+function handleClick() {
   let flyCont = document.getElementById('fly');
   let menu = document.getElementById('hidden-controls');
-  if (!menuShow){
+  if (!menuShow) {
     flyCont.style.top = 0;
     menu.style.opacity = 0.8;
     arrow.style.transform = 'scaleY(1)';
     menuShow = true;
-  }else if(menuShow){
-    flyCont.style.top = '80px';
+  } else if (menuShow) {
+    flyCont.style.top = '40px';
     menu.style.opacity = 0;
     arrow.style.transform = 'scaleY(-1)';
     menuShow = false;
@@ -200,3 +201,33 @@ function handleClick(){
 }
 
 
+//-- SOUND SELECT --//
+
+function Sound(name, url) {
+  this.name = name;
+  this.url = url;
+  Sound.library.push(this);
+}
+
+Sound.library = [];
+
+new Sound('rain', 'assets/sounds/light-rain.wav');
+new Sound('ocean', 'assets/sounds/harbor-waves.wav');
+new Sound('forest', 'assets/sounds/quiet-forest.wav');
+new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav');
+
+
+function loadSound() {
+  let player = document.getElementById('sound');
+  let userSound = parsedSettings.sound;
+
+  for (let i = 0; i < Sound.library.length; i++) {
+    let sound = Sound.library[i];
+
+    if (userSound === sound.name) {
+      console.log(sound.url);
+      player.src = sound.url;
+    }
+  }
+}
+loadSound();

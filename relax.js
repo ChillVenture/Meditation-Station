@@ -14,7 +14,7 @@ darkButton.addEventListener('click', (event) => {
         //darkButton.className = 'lightMode';
     } else if (bkgImage.className === 'darkImage') {
 
-        bkgImage.className = 'lightImage'
+        bkgImage.className = 'lightImage';
         darkButton.innerText = "Night Mode";
         //darkButton.className = 'lightMode';
     }

@@ -75,3 +75,52 @@ main {
   }
   
   
+
+/* Quote Style stuff */
+
+#quotes{
+  border-radius: 50px;
+  height:100px;
+  width:60vw;
+  position:absolute;
+  margin:auto;
+  top:50vh;
+  left:20vw;
+  padding: 20px;
+}
+
+#inspQuote{
+  position:relative;
+  text-align: center;
+  padding:10px;
+  display:block;
+  color:azure;
+  opacity: 0;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+
+}
+
+@keyframes inspFly2{
+  0%{
+    opacity:0;
+    bottom: -20px;
+  }
+  5%{
+    opacity:0.5;
+    bottom:0px;
+  }
+  85%{
+    opacity:0.5;
+    bottom:0px;
+  }
+  90%{
+    opacity:0;
+    bottom: 20px;
+  }
+  100%
+  {
+    opacity:0;
+    bottom: 20px;
+  }
+} 

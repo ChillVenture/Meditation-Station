@@ -3,6 +3,7 @@
 // let lightImage = document.querySelector('lightImage');
 // let bkgImage = document.getElementById('background');
 
+
 // let logo = document.getElementById('logo');
 
 let cityPics = [];

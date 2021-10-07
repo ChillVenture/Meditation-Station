@@ -167,7 +167,7 @@ Timer.prototype.timerCount = function () {
 
 let parsedUserMin = parseInt(parsedSettings.sessionTime);
 let sessionTimer = new Timer(parsedUserMin);
-//sessionTimer.startTimer();
+sessionTimer.startTimer();
 
 getTimeofDay();
 getForeground();

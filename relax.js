@@ -171,7 +171,7 @@ Timer.prototype.timerCount = function () {
 
 let parsedUserMin = parseInt(parsedSettings.sessionTime);
 let sessionTimer = new Timer(parsedUserMin);
-sessionTimer.startTimer();
+
 
 getTimeofDay();
 getForeground();
@@ -201,33 +201,95 @@ function handleClick() {
 }
 
 
+
+function renderWelcome(){
+  let messageEl = document.getElementById('welcome');
+  messageEl.innerHTML=`<p>Welcome, ${parsedSettings.name}. Press 'Enter' to begin your journey.</p>`;
+}
+
+//fetch random quote from Go Quotes API
+
+// async function getApi2(url) {
+ 
+//   parentEl = document.getElementById('inspQuote');
+//   parentEl.style.animation = '';
+
+//   //get quote from API
+//   let response = await fetch(url);
+//   let data = await response.json();
+//   let quote = data.quotes[0]
+  
+//   //place quote using DOM
+//   parentEl.innerText = quote.text;
+//   parentEl.cite = quote.author;
+//   parentEl.style.animation = 'inspFly2 20s linear 1';
+
+//   setTimeout(getApi2, 20000, url);
+// }
+
+
+//Attribution
+//Inspirational quotes provided by <a href="https://goquotes.docs.apiary.io/" target="_blank">Go Quotes API</a>
+
+
 //-- SOUND SELECT --//
 
-function Sound(name, url) {
+function Sound(name, url, volume) {
   this.name = name;
   this.url = url;
+  this.volume = volume;
   Sound.library.push(this);
 }
 
 Sound.library = [];
 
-new Sound('rain', 'assets/sounds/light-rain.wav');
-new Sound('ocean', 'assets/sounds/harbor-waves.wav');
-new Sound('forest', 'assets/sounds/quiet-forest.wav');
-new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav');
+new Sound('rain', 'assets/sounds/light-rain.wav', 1);
+new Sound('ocean', 'assets/sounds/harbor-waves.wav', 1);
+new Sound('forest', 'assets/sounds/quiet-forest.wav', 1);
+new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav', 0.5);
 
 
 function loadSound() {
   let player = document.getElementById('sound');
   let userSound = parsedSettings.sound;
-
+  console.log(player, userSound);
   for (let i = 0; i < Sound.library.length; i++) {
     let sound = Sound.library[i];
 
     if (userSound === sound.name) {
       console.log(sound.url);
       player.src = sound.url;
+      player.volume = sound.volume;
     }
   }
 }
 loadSound();
+
+
+// event = keyup
+document.addEventListener('keyup', handleKeyup);
+  function handleKeyup(event){
+  if (event.code === 'Enter') {
+
+    //fade message
+    let messageEl = document.getElementById('welcome');
+    messageEl.style.opacity=0;
+    
+    //call api
+    getApi2(api_url)
+
+    //launch timer
+    sessionTimer.startTimer();
+
+    //launch music
+    document.getElementById('sound').play();
+    document.removeEventListener('keyup', handleKeyup);
+  }
+};
+
+
+
+
+getTimeofDay();
+getForeground();
+renderWelcome();

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 //create place to store the user's settings
 let mySettings = [];
@@ -58,7 +58,7 @@ function retrieveSettings(){
   let timerEl = document.getElementById('timerSelect');
   let soundsEl = document.getElementById('soundsSelect');
   let bgTypeEl = document.getElementById(parsedSettings.bgStyle);
-    
+
 
   //set the values of the elements in the form with the parsed data
   nameEl.value = parsedSettings.name;
@@ -66,7 +66,7 @@ function retrieveSettings(){
   timerEl.value = parsedSettings.sessionTime;
   soundsEl.options[parsedSettings.sound].selected = true;
   bgTypeEl.checked = true;
-};
+}
 
 
 formEl.addEventListener('submit', handleSubmit);

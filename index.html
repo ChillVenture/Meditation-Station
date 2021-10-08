@@ -11,12 +11,13 @@
 </head>
 
 <body>
+    <!-- <img src="images/homeBackgroun.jpg" alt="" id="bkgImage"> -->
     <header>
         <!--The header will include BOTH the logo and the Title, at this point title will not have animations.
                  Replace the img src with our logo once designed.-->
         <div id='logo'>
-            <img src='images/logo.png'>
-            <h1>Quotes of the Day</h1>
+            <img class="logoImage" src='images/logo.png'>
+            <h1 class="title">Meditation Station</h1>
         </div>
     </header>
     <div id='inspiration'><q id="inspQuote" cite=""></q></div>
@@ -36,7 +37,6 @@
             <fieldset form='chooseSettings'>
                 <heading>Customize Your Journey</heading>
 
-
                 <div id='nameContainer'>
                     <!--will be centered above other fields, per wireframe-->
                     <input id='userName' type='text' placeholder="Enter Your Name">
@@ -51,8 +51,6 @@
                     <option id='cityScape' value='cityScape'>City Scape</option>
                 </select><br>
 
-                <label>Session Length (min):</label><br>
-                 <input type='number' id='timerSelect' step="5" /><br>
 
                 <select id='soundsSelect'>
                     <option value='pleaseSelect'>Select Your Sounds</option>
@@ -66,6 +64,9 @@
 
                 </select><br>
 
+                <label>Session Length (min):</label><br>
+                <input type='number' id='timerSelect' step="5" /><br>
+
                 <!--Radio Buttons for Background Style, dynamic or static-->
                 <input class='radButton' id='Dynamic' type='radio' name='bgType' value='Dynamic' /> <label
                     for='dynamicBg'>Dynamic</label><br>
@@ -75,14 +76,15 @@
                 <!--optional randomize button may go here, if beyond our MVP-->
 
                 <!--Submit Button Here-->
-                <input type='submit' value='Start Your Journey' onclick="window.location.href='relax.html';" />
+                <input class="submit-button" type='submit' value='Start Your Journey'
+                    onclick="window.location.href='relax.html';" />
             </fieldset>
         </form>
 
     </main>
 
     <footer>
-        <p>Maintained by <a href='https://github.com/ChillVenture'>ChillVenture.</a> View our repository<a
+        <p>Maintained by <a href='https://github.com/ChillVenture'>ChillVenture.</a> View our repository <a
                 href='https://github.com/ChillVenture/Meditation-Station'> here.</a></p>
     </footer>
 

@@ -1,11 +1,11 @@
 
 body {
-    /* display: flex; */
     justify-content: center;
     justify-items: center;
     background-color: rgb(22, 19, 22);
     margin: 0;
 }
+
 h1{
   display: inline-block;
   text-align: right;
@@ -13,18 +13,21 @@ h1{
   margin: 0;
   color: rgba(77, 184, 231, 0.4668);
 }
+
 header{
   margin-top: 20px;
   height: 15vh;
   text-align:center;
   font-size: 60px;
 }
+
 #logoImage {
     margin-top: 0;
     height: 100%;
     width: auto;
     float: left;
 }
+
 #welcome{
   display:block;
   position: absolute;
@@ -52,15 +55,18 @@ header{
     z-index: 2;
     background-size: cover;
 }
+
 #imagesContainer{
   position: relative;
   overflow: hidden;
   height: 60rem;
   width: 100%;
 } 
+
 .destination{
   position: absolute;
 }
+
 .lightImage {
   color: rgba(77, 184, 231, 0.4668);
 }
@@ -74,7 +80,7 @@ header{
   background-size: contain;
 }
 
-  #foreground{
+#foreground{
       background-position: bottom;
       background-repeat: no-repeat;
       bottom: 0;
@@ -82,14 +88,12 @@ header{
       width: 100%;
       z-index: 3;
       background-size: contain;
-  }
-  #contents{
+}
+
+#contents{
       height:100;
       z-index: 1;
-  }
-  
-
-  
+}
 
 /* Quote Style stuff */
 #quotes{
@@ -103,6 +107,7 @@ header{
   padding: 20px;
   z-index: 4;
 }
+
 #inspQuote{
   position:relative;
   text-align: center;
@@ -113,8 +118,9 @@ header{
   background-color: rgb(47, 50, 56);
   border-radius: 10px;
   font-size: x-large;
-
 }
+
+/* Animation for quotes */
 @keyframes inspFly2{
   0%{
     opacity:0;
@@ -139,13 +145,14 @@ header{
   }
 } 
 
-/* bottom controls */
+/* hidden bottom controls */
 #fly{
   position:relative;
   transition-property: top;
   top: 40px;
   transition-duration: 0.5s;
 }
+
 #fly img{
   position:relative;
   display:block;
@@ -156,6 +163,7 @@ header{
   transition-property: transform;
   transition-duration: 0.5s;
 }
+
 #hidden-controls{
   display:grid;
   text-align: center;
@@ -167,12 +175,14 @@ header{
   transition-property: opacity;
   transition-duration:0.5s;
 }
+
 audio{
   height:25px;
   width: 90%;
   grid-column: 1;
   margin: auto;
 }
+
 #backhome, #dark-mode {
 box-shadow: 0px 0px 0px 2px #9fb4f2;
 background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
@@ -190,6 +200,7 @@ margin: auto;
 box-sizing: border-box;
 height: 25px;
 }
+
 #timer{
   display:block;
   width:90%;

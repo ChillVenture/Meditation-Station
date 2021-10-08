@@ -1,11 +1,4 @@
-// let darkButton = document.getElementById('dark-mode');
-// let darkImage = document.querySelector('darkImage');
-// let lightImage = document.querySelector('lightImage');
-// let bkgImage = document.getElementById('background');
-// let logo = document.getElementById('logo');
-
-
-//-- IMAGE SELECTION AND RENDER  --//
+//create arrays to hold images
 let cityPics = [];
 let desertPics = [];
 let fieldPics = [];
@@ -16,7 +9,7 @@ let daySkyPics = [];
 let sunsetSkyPics = [];
 let morningSkyPics = [];
 
-
+//image object constructor
 function Image(name, url) {
   this.name = name;
   this.url = `${url}`;
@@ -42,6 +35,7 @@ function Image(name, url) {
   }
 }
 
+//instantiate images, give name based on category
 new Image('city', 'images/city-foreground/seattle.png');
 new Image('city', 'images/city-foreground/city-skyline.png');
 new Image('day', 'images/day-sky/daytime.png');
@@ -59,10 +53,14 @@ new Image('night', 'images/night-sky/blue-night.png');
 new Image('night', 'images/night-sky/starry-night.png');
 new Image('night', 'images/night-sky/yellownight.png');
 new Image('night', 'images/night-sky/full-moon.jpeg');
+new Image('night', 'images/night-sky/milkyway.gif');
 new Image('sunset', 'images/sunset-sky/golden-sunrise.png');
+new Image('sunset', 'images/sunset-sky/sunset2.jpg');
+new Image('morning', 'images/morning-sky/sunrise.jpg');
 
 
-//adding function to get user's time of day, which can be used to determine the background's sky
+
+//function gets user's time of day, which can be used to determine the background's sky, eventually will call for random image selection
 function getTimeofDay() {
   let today = new Date(),
     hour = today.getHours();
@@ -72,30 +70,29 @@ function getTimeofDay() {
 
   if (hour < 11) {
 
-    //pull random image from morningSkyPics and set to sky layer in relax.html
-    // skyEl.src = `${morningSkyPics[0].url}`;
+    //pull image from morningSkyPics and set to sky layer in relax.html
+    skyEl.src = `${morningSkyPics[0].url}`;
 
   } else if (hour < 18) {
 
-    //pull random image from daySkyPics and set to sky layer in relax.html
+    //pull image from daySkyPics and set to sky layer in relax.html
     skyEl.src = `${daySkyPics[3].url}`;
 
   } else if (hour < 20) {
 
-    //pull random image from sunsetSkyPics and set to sky layer in relax.html
+    //pull image from sunsetSkyPics and set to sky layer in relax.html
     skyEl.src = `${sunsetSkyPics[0].url}`;
 
   } else {
 
-    //pull random image from nightSkyPics and set to sky layer in relax.html
-    skyEl.src = `${nightSkyPics[3].url}`;
+    //pull image from nightSkyPics and set to sky layer in relax.html
+    skyEl.src = `${nightSkyPics[5].url}`;
 
   }
 }
 
 let rawStorage = localStorage.getItem('savedSettings');
 let parsedSettings = JSON.parse(rawStorage)[0];
-// let randIndex = Math.floor(Math.random()*4); to use if we have 4 images in each
 
 function getForeground() {
   //get user data for the foreground choice
@@ -204,35 +201,11 @@ function handleClick() {
 
 
 
-function renderWelcome() {
+
+function renderWelcome(){
   let messageEl = document.getElementById('welcome');
   messageEl.innerHTML = `<p>Welcome, ${parsedSettings.name}. Press 'Enter' to begin your journey.</p>`;
 }
-
-//fetch random quote from Go Quotes API
-
-// async function getApi2(url) {
-
-//   parentEl = document.getElementById('inspQuote');
-//   parentEl.style.animation = '';
-
-//   //get quote from API
-//   let response = await fetch(url);
-//   let data = await response.json();
-//   let quote = data.quotes[0]
-
-//   //place quote using DOM
-//   parentEl.innerText = quote.text;
-//   parentEl.cite = quote.author;
-//   parentEl.style.animation = 'inspFly2 20s linear 1';
-
-//   setTimeout(getApi2, 20000, url);
-// }
-
-
-//Attribution
-//Inspirational quotes provided by <a href="https://goquotes.docs.apiary.io/" target="_blank">Go Quotes API</a>
-
 
 //-- SOUND SELECT --//
 
@@ -271,12 +244,14 @@ loadSound();
 
 // event = keyup
 document.addEventListener('keyup', handleKeyup);
-function handleKeyup(event) {
+
+//set keypress event to launch all page behaviors
+function handleKeyup(event){
   if (event.code === 'Enter') {
 
     //fade message
     let messageEl = document.getElementById('welcome');
-    messageEl.style.opacity = 0;
+    messageEl.style.opacity=0;
 
     //call api
     getApi2(api_url)
@@ -288,11 +263,12 @@ function handleKeyup(event) {
     document.getElementById('sound').play();
     document.removeEventListener('keyup', handleKeyup);
   }
-};
-
-
+}
 
 
 getTimeofDay();
 getForeground();
 renderWelcome();
+
+//Attribution
+//Inspirational quotes provided by <a href="https://goquotes.docs.apiary.io/" target="_blank">Go Quotes API</a>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,7 @@
     <link rel="shortcut icon" type="icon" href="images/logo.png" />
     <link rel="stylesheet" href="relax.css">
 
-</head>
-<!-- /* entire body of the page*/ -->
+  </head>
 
 <body>
         
@@ -19,59 +18,46 @@
     <h1>Your Meditation Station</h1>
   </header>
 
-    <!-- /* inner container that contains everything*/ -->
     <main id="main">
 
-        <div id="welcome"></div>
+      <div id="welcome"></div>
 
-        <div id='quotes'>
-          <q id="inspQuote" cite=""></q>
+      <div id='quotes'>
+        <q id="inspQuote" cite=""></q>
+      </div>
+
+      <div id="contents">    
+
+        <!-- background contents will be rendered to this div-->
+        <div id='imagesContainer'>
+          <img src='' class="destination" id="sky-section">
+          <img src='' class="destination" id="foreground">         
         </div>
-        <!-- /* container housing all the data inside it*/ -->
-
-        <div id="contents">
-
-        
-              
-
-            
-            <!-- sky images will be rendered to this div. this will need the lowest Z Index-->
-
-            <div id='imagesContainer'>
-               <img src='' class="destination" id="sky-section">
-               <img src='' class="destination" id="foreground">
-            <!-- <div id='foreground'></div>  -->
-          
-            </div>
       
-            <div id="fly">
-              <img src="images/icons8-expand-arrow-96.png" alt="">
-            <!-- /* hidden menu appears when mouse overs over arrow*/ -->
-            <div id="hidden-controls">
-
-              <!-- <div><img src="images/icons8-expand-arrow-96.png" alt=""></div> -->
+        <div id="fly">
+          <img src="images/icons8-expand-arrow-96.png" alt="">
+          <!-- /* hidden menu appears when mouse overs over arrow*/ -->
+          <div id="hidden-controls">
               
-              <!-- right side of the control menu -->
-              <audio id="sound" volume='0.5' src='assets/sounds/light-rain.wav' controls loop></audio>
+            <!-- right side of the control menu -->
+            <audio id="sound" volume='0.5' src='assets/sounds/light-rain.wav' controls loop></audio>
               
               <!-- /* shows how much time elapsed */ -->
               <p id="timer">Timer not selected</p>
 
-              <!-- button linking to homepage*/ -->
-              <input id="backhome" type="button" onclick="location.href='index.html';" value="Go to home" />
+            <!-- button linking to homepage*/ -->
+            <input id="backhome" type="button" onclick="location.href='index.html';" value="Go to home" />
 
-            </div>
-            </div>
+          </div>
         </div>
-
-        <footer><p><a target="_blank" href="https://icons8.com/icon/44002/expand-arrow">Expand Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></p></footer>
-
+      
     </main>
+  <footer><p><a target="_blank" href="https://icons8.com/icon/44002/expand-arrow">Expand Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></p></footer>
+
+    
     <script src='relax-api.js'></script>
     <script src="relax.js"></script>
     
-    
-    <!-- <script src='app-api.js'></script> -->
 </body>
 
 </html>

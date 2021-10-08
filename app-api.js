@@ -9,10 +9,7 @@ async function getApi(url) {
   let response = await fetch(url);
   let data = await response.json();
   let quote = data.quotes[0]
-  //console.log(typeof data);
-  //console.log(data);
-  // console.log(quote.text);
-  // console.log(quote.author);
+
   
   parentEl.innerText = quote.text;
   parentEl.cite = quote.author;

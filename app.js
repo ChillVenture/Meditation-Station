@@ -3,7 +3,6 @@
 //create place to store the user's settings
 let mySettings = [];
 
-//create the form element
 let formEl = document.getElementById('chooseSettings');
 
 //constructor to create UserSettings Object
@@ -13,12 +12,11 @@ function UserSettings(userName, destination, sessionTime, sound, bgStyle) {
   this.sessionTime = sessionTime;
   this.sound = sound;
   this.bgStyle = bgStyle;
-  mySettings.push(this);//send settings to array
+  mySettings.push(this);//send settings to mySettings array
 }
 
-//declare preferredSettings variable to make it global, used in 
-let preferredSettings;
 
+let preferredSettings;
 
 //handle the submit event
 function handleSubmit(event){
@@ -32,7 +30,6 @@ function handleSubmit(event){
   //save preferredSettings
   saveToStorage(preferredSettings);
 }
-
 
 
 //save all the user settings to localStorage

@@ -59,8 +59,8 @@ header{
 #imagesContainer{
   position: relative;
   overflow: hidden;
-  height: 60rem;
-  width: 100%;
+  height: 56vw;
+  width: 100vw;
 } 
 
 .destination{

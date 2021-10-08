@@ -172,8 +172,8 @@ let parsedUserMin = parseInt(parsedSettings.sessionTime);
 let sessionTimer = new Timer(parsedUserMin);
 
 
-getTimeofDay();
-getForeground();
+// getTimeofDay();
+// getForeground();
 
 
 //--  FLY-IN MENU  --//

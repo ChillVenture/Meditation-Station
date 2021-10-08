@@ -73,7 +73,7 @@ function getTimeofDay() {
   if (hour < 11) {
 
     //pull random image from morningSkyPics and set to sky layer in relax.html
-    skyEl.src = `${morningSkyPics[0].url}`;
+    // skyEl.src = `${morningSkyPics[0].url}`;
 
   } else if (hour < 18) {
 
@@ -129,8 +129,10 @@ function Timer(minutes) {
 // we get around this by setting the object scope in a variable "_this"
 // a closure must be made to utilize the new _this variable.
 Timer.prototype.startTimer = function () {
-  let _this = this;
-  this.timerHash = setInterval(function () { _this.timerCount(); }, 1000);
+  if (parsedUserMin > 0) {
+    let _this = this;
+    this.timerHash = setInterval(function () { _this.timerCount(); }, 1000);
+  }
 };
 
 // method for end of timer.
@@ -202,15 +204,15 @@ function handleClick() {
 
 
 
-function renderWelcome(){
+function renderWelcome() {
   let messageEl = document.getElementById('welcome');
-  messageEl.innerHTML=`<p>Welcome, ${parsedSettings.name}. Press 'Enter' to begin your journey.</p>`;
+  messageEl.innerHTML = `<p>Welcome, ${parsedSettings.name}. Press 'Enter' to begin your journey.</p>`;
 }
 
 //fetch random quote from Go Quotes API
 
 // async function getApi2(url) {
- 
+
 //   parentEl = document.getElementById('inspQuote');
 //   parentEl.style.animation = '';
 
@@ -218,7 +220,7 @@ function renderWelcome(){
 //   let response = await fetch(url);
 //   let data = await response.json();
 //   let quote = data.quotes[0]
-  
+
 //   //place quote using DOM
 //   parentEl.innerText = quote.text;
 //   parentEl.cite = quote.author;
@@ -247,6 +249,7 @@ new Sound('rain', 'assets/sounds/light-rain.wav', 1);
 new Sound('ocean', 'assets/sounds/harbor-waves.wav', 1);
 new Sound('forest', 'assets/sounds/quiet-forest.wav', 1);
 new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav', 0.5);
+new Sound('music', 'assets/sounds/bensound-slowmotion.mp3', 0.5);
 
 
 function loadSound() {
@@ -268,13 +271,13 @@ loadSound();
 
 // event = keyup
 document.addEventListener('keyup', handleKeyup);
-  function handleKeyup(event){
+function handleKeyup(event) {
   if (event.code === 'Enter') {
 
     //fade message
     let messageEl = document.getElementById('welcome');
-    messageEl.style.opacity=0;
-    
+    messageEl.style.opacity = 0;
+
     //call api
     getApi2(api_url)
 

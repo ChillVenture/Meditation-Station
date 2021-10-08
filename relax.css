@@ -149,19 +149,26 @@ header{
 #fly{
   position:relative;
   transition-property: top;
-  top: 40px;
+  top: 10px;
   transition-duration: 0.5s;
 }
 
 #fly img{
   position:relative;
   display:block;
+  background-color: transparent;
   margin:auto;
-  height: 25px;
+  height: 50px;
   width:auto;
   transform: scaleY(-1);
-  transition-property: transform;
+  transition-property: transform, background-color;
   transition-duration: 0.5s;
+  border-radius: 5px;
+  z-index: 5;
+}
+#fly img:hover{
+  background-color: rgba(77, 184, 231, 0.1);
+  cursor: pointer;
 }
 
 #hidden-controls{

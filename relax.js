@@ -187,12 +187,12 @@ function handleClick() {
   let flyCont = document.getElementById('fly');
   let menu = document.getElementById('hidden-controls');
   if (!menuShow) {
-    flyCont.style.top = 0;
+    flyCont.style.top = '0px';
     menu.style.opacity = 0.8;
     arrow.style.transform = 'scaleY(1)';
     menuShow = true;
   } else if (menuShow) {
-    flyCont.style.top = '40px';
+    flyCont.style.top = '10px';
     menu.style.opacity = 0;
     arrow.style.transform = 'scaleY(-1)';
     menuShow = false;

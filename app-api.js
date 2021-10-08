@@ -18,7 +18,6 @@ async function getApi(url) {
 
   setTimeout(getApi, 10000, url);
 }
-getApi(api_url)
 
 //Attribution
 //Inspirational quotes provided by <a href="https://goquotes.docs.apiary.io/" target="_blank">Go Quotes API</a>

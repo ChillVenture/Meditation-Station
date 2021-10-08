@@ -126,8 +126,10 @@ function Timer(minutes) {
 // we get around this by setting the object scope in a variable "_this"
 // a closure must be made to utilize the new _this variable.
 Timer.prototype.startTimer = function () {
-  let _this = this;
-  this.timerHash = setInterval(function () { _this.timerCount(); }, 1000);
+  if (parsedUserMin > 0) {
+    let _this = this;
+    this.timerHash = setInterval(function () { _this.timerCount(); }, 1000);
+  }
 };
 
 // method for end of timer.
@@ -198,9 +200,11 @@ function handleClick() {
 }
 
 
+
+
 function renderWelcome(){
   let messageEl = document.getElementById('welcome');
-  messageEl.innerHTML=`<p>Welcome, ${parsedSettings.name}. Press 'Enter' to begin your journey.</p>`;
+  messageEl.innerHTML = `<p>Welcome, ${parsedSettings.name}. Press 'Enter' to begin your journey.</p>`;
 }
 
 //-- SOUND SELECT --//
@@ -218,6 +222,7 @@ new Sound('rain', 'assets/sounds/light-rain.wav', 1);
 new Sound('ocean', 'assets/sounds/harbor-waves.wav', 1);
 new Sound('forest', 'assets/sounds/quiet-forest.wav', 1);
 new Sound('whiteNoise', 'assets/sounds/industrial-hum.wav', 0.5);
+new Sound('music', 'assets/sounds/bensound-slowmotion.mp3', 0.5);
 
 
 function loadSound() {

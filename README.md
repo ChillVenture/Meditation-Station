@@ -95,3 +95,11 @@ Will you be using a PR review workflow? If so, consider:
 
 * Music: [www.bensound.com](https://www.bensound.com/royalty-free-music/track/slow-motion)
 * Sounds: [mixkit.co](https://mixkit.co/)
+
+## Post Project Submission Patch Notes
+
+This app was originally powered by [GoQuotes API](https://goquotes.docs.apiary.io/#) hosted through Heroku, but the creator has since brought down service due to high traffic.
+
+Their repository is still available on GitHub, so the site is not powered by a local copy of the .json file borrowed from the source code of their project repository. Original API project repository can be found [here](https://github.com/amsavarthan/goquotes-api).
+
+Original code in  `app-api.js` and `relax-api.js` has been preserved, and new code for local use has been marked as such. `async` flag was kept on original api call functions in case we ever return to using API power. Site random quote functionality should be live with this patch, operating at a local level.

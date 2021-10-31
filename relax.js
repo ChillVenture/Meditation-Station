@@ -254,7 +254,7 @@ function handleKeyup(event){
     messageEl.style.opacity=0;
 
     //call api
-    getApi2(api_url)
+    getApi2(localPath);
 
     //launch timer
     sessionTimer.startTimer();

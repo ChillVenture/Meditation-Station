@@ -2,15 +2,29 @@
 
 const api_url = 'https://goquotes-api.herokuapp.com/api/v1/random/1?type=tag&val=motivational';
 
+const localPath = './assets/quotes.json';
+
 async function getApi2(url) {
   parentEl = document.getElementById('inspQuote');
   parentEl.style.animation = '';
 
-  //get quote from API
+  //get quote
   let response = await fetch(url);
   let data = await response.json();
-  let quote = data.quotes[0]
-  
+
+  //---Repair code for local path use
+
+  let motData = data.filter((quote) => quote.tag === 'motivational')
+
+  let randIdx = Math.floor(Math.random() * motData.length);
+
+  let quote = motData[randIdx];
+  //---End repair code
+
+  //---commented out code for local data use
+  //let quote = data.quotes[0]
+  //---
+
   //place quote using DOM
   parentEl.innerText = quote.text;
   parentEl.cite = quote.author;
